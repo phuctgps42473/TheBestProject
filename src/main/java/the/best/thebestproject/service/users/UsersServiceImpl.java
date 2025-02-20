@@ -4,10 +4,8 @@ package the.best.thebestproject.service.users;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import the.best.thebestproject.dto.RegisterUserDto;
-import the.best.thebestproject.dto.request.ApiResponse;
 import the.best.thebestproject.mapper.UserMapper;
 import the.best.thebestproject.model.Users;
 import the.best.thebestproject.repository.UsersRepository;
@@ -23,14 +21,17 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public Users createNewUser(RegisterUserDto dto) {
-        Users users = userMapper.mapToUser(dto);
-        if (users != null) throw new RuntimeException("User is null");
-        return usersRepository.save(userMapper.mapToUser(dto));
+        Users users;
+        users = this.findUserByEmail(dto.getEmail());
+        if (users != null) throw new IllegalArgumentException("user existed");
+
+        users = userMapper.mapToUser(dto);
+        return usersRepository.save(users);
     }
 
     @Override
     public Users findUserByEmail(String email) {
-        return null;
+        return usersRepository.findUserByEmail(email).orElse(null);
     }
 
     @Override

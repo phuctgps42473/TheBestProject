@@ -21,7 +21,7 @@ public class Users {
     String id;
 
     @Column(nullable = false, length = 63)
-    String name;
+    String fullName;
 
     @Column(unique = true)
     String email;
@@ -48,7 +48,7 @@ public class Users {
 
     @Column(name = "is_enabled")
     @Builder.Default
-    Boolean enabled = false;
+    Boolean enabled = true;
 
 }
 
