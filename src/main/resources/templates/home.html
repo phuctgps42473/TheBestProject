@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<style>
+/* Custom styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.item-grid {
+    margin-top: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.price {
+    color: #e91e63; /* Example color */
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giới thiệu</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="section-content mb-2">
+            <div class="container">
+                <header class="section-heading py-4 d-flex justify-content-between">
+                    <h3 class="section-title">Danh mục sản phẩm</h3>
+                    <a class="btn btn-secondary" href="#" role="button">Xem tất cả</a>
+                </header>
+                <div class="row item-grid">
+                    <!-- Loop through categories -->
+                    <div class="col-lg-2 col-md-6">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <a href="#">
+                                    <div class="text-center">
+                                        <span class="category-title">Tên danh mục</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End loop -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section-content mb-5">
+            <div class="container">
+                <header class="section-heading py-4 d-flex justify-content-between">
+                    <h3 class="section-title">Sản phẩm mới nhất</h3>
+                    <a class="btn btn-secondary" href="#" role="button">Xem tất cả</a>
+                </header>
+                <div class="row item-grid">
+                    <!-- Loop through products -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="card p-3 mb-4">
+                            <a href="#" class="img-wrap text-center">
+                                <img src="path/to/image.jpg" class="img-fluid" alt="Tên sản phẩm">
+                            </a>
+                            <figcaption class="info-wrap mt-2">
+                                <a href="#" class="title td-text">Tên sản phẩm</a>
+                                <div>
+                                    <div>
+                                        <span class="price mt-1 fw-bold">Giá sản phẩm</span>
+                                    </div>
+                                    <div>
+                                        <span class="price mt-1 fw-bold">Giá giảm</span>
+                                        <span class="ms-2 text-muted text-decoration-line-through">Giá gốc</span>
+                                        <span class="ms-2 badge bg-info">-% giảm</span>
+                                    </div>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </div>
+                    <!-- End loop -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start">
+        <div class="text-center p-3">
+            &copy; The Best
+        </div>
+    </footer>
+
+    <!-- Link to Bootstrap JS (optional, for Bootstrap features like dropdowns, toggles, etc.) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
