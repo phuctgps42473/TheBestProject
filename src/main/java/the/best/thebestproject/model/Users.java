@@ -50,5 +50,6 @@ public class Users {
     @Builder.Default
     Boolean enabled = false;
 
+    private String resetToken;
 }
 

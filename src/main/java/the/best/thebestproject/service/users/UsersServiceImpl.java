@@ -17,9 +17,13 @@ import the.best.thebestproject.repository.UsersRepository;
 @RequiredArgsConstructor
 public class UsersServiceImpl implements UsersService {
 
-
     private final UserMapper userMapper;
     private final UsersRepository usersRepository;
+
+    @Override
+    public boolean userExistsByEmail(String email) {
+        return this.usersRepository.existsByEmail(email);
+    }
 
     @Override
     public Users createNewUser(RegisterUserDto dto) {
@@ -29,9 +33,19 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public Users findUserByEmail(String email) {
-        return null;
+    public void updateUser(Users user) {
+        this.usersRepository.save(user);
     }
+
+    public void createNewUser(Users user) {
+        usersRepository.save(user);
+    }
+
+    @Override
+    public Users findUserByEmail(String email) {
+        return this.usersRepository.findByEmail(email).orElseThrow(() -> new RuntimeException(("User not found")));
+    }
+
 
     @Override
     public void isValidPassword(String email, String password) {

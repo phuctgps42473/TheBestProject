@@ -12,6 +12,6 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 public class RegisterUserDto {
     String email;
-    String password;
     String fullName;
+    String password;
 }

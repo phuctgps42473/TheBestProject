@@ -9,7 +9,11 @@ import the.best.thebestproject.model.Users;
 @Service
 public interface UsersService {
 
+    boolean userExistsByEmail(String email);
+
     Users createNewUser(RegisterUserDto dto);
+
+    void updateUser(Users user);
 
     Users findUserByEmail(String email);
 
