@@ -12,11 +12,12 @@ import org.springframework.web.servlet.view.RedirectView;
 import the.best.thebestproject.dto.RegisterUserDto;
 import the.best.thebestproject.model.Users;
 import the.best.thebestproject.service.CookieService.CookieService;
+import the.best.thebestproject.service.users.UsersService;
 import the.best.thebestproject.service.users.UsersServiceImpl;
 
 @Controller
 public class ResigterController {
-    private final UsersServiceImpl usersService;
+    private final UsersService usersService;
     private CookieService cookieService;
 
     public ResigterController(UsersServiceImpl usersService, CookieService cookieService) {
@@ -45,7 +46,7 @@ public class ResigterController {
             model.addAttribute("emailError", "Tài khoản email đã được đăng ký");
             return "register";
         } else {
-            Users user  = Users.builder().name(dto.getFullName()).email(dto.getEmail()).password(dto.getPassword()).build();
+            Users user  = Users.builder().fullName(dto.getFullName()).email(dto.getEmail()).password(dto.getPassword()).build();
             this.usersService.createNewUser(user);
 
             Cookie cookie = new Cookie("id", user.getId());

@@ -11,7 +11,7 @@ public interface UsersService {
 
     boolean userExistsByEmail(String email);
 
-    Users createNewUser(RegisterUserDto dto);
+    Users createNewUser(Users users);
 
     void updateUser(Users user);
 
