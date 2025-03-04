@@ -47,4 +47,12 @@ public class UsersServiceImpl implements UsersService {
     public void isValidPassword(String email, String password) {
 
     }
+
+    @Override
+    public String changePassword(Users users, String password) {
+        Users users1 = findUserByEmail(users.getEmail());
+        if (users1 == null) throw new IllegalArgumentException("Không tìm thấy Email ");
+        users1.setPassword(passwordEncoder.encode(password));
+        return users1.getPassword();
+    }
 }

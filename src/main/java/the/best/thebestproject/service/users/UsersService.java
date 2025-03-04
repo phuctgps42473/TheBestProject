@@ -18,4 +18,6 @@ public interface UsersService {
     Users findUserByEmail(String email);
 
     void isValidPassword(String email, String password);
+
+    String changePassword(Users users, String password);
 }

@@ -110,8 +110,9 @@ public class ForgotPasswordController {
 
         if (password.equals(confirmPassword)) {
             Users user = usersService.findUserByEmail(cookieService.getCookie("reset-email").getValue());
-            user.setPassword(confirmPassword);
+            user.setPassword(usersService.changePassword(user, password));
             usersService.updateUser(user);
+
             return "redirect:login";
         } else {
             model.addAttribute("errorPassword", "Passwords does not match");
